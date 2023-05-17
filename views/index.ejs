@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Houses</title>
+  <style>
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+    }
+    .house {
+      width: 30%;
+      margin: 1%;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 5px;
+      text-align: center;
+    }
+    .house img {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+    <div class="container" style="align-items: center;">
+        <h1 class="house" style="border: 3px solid #2e9b0d">🏠Finn.no - Hus Database🏠<br>👇👇👇👇👇👇<br>👇👇👇<br>👇</h1>
+  <div class="container">
+    <% houses.forEach(house => { %>
+      <div class="house">
+        <a href="<%= house.url %>">
+          <img src="<%= house.thumbnail %>" alt="<%= house.title %>">
+        </a>
+          <p><b>Dato Lagret: </b><%= house.created_at.toUTCString().split(', GMT')  %></p>
+          <h2 style="font-size: 18px;"><%= house.title %></h2>
+          <p><b>Pris: </b><%= house.price %> <br>
+          <b>Størrelse: </b><%= house.area %></p>
+          <p><b>Adresse: </b><%= house.address %></p>
+        
+      </div>
+    <% }) %>
+  </div>
+</body>
+</html>
